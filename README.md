@@ -1,4 +1,4 @@
-# BlueBuild Images &nbsp; [![bluebuild build badge](https://github.com/alexandregv/bluebuild-images/actions/workflows/build.yml/badge.svg)](https://github.com/alexandregv/bluebuild-images/actions/workflows/build.yml)
+# BlueBuild Images &nbsp; [![bluebuild build badge](https://github.com/42paris/bluebuild-images/actions/workflows/build.yml/badge.svg)](https://github.com/42paris/bluebuild-images/actions/workflows/build.yml)
 
 This repository provides Linux images built using [BlueBuild](https://blue-build.org). It is based on the [BlueBuild template](https://github.com/blue-build/template).  
 The CI builds daily and follows base image updates, adding the modified layers on top.
@@ -9,12 +9,12 @@ Images are built according to YAML recipes found in [`./recipes/`](./recipes/). 
 
 | Name                         	  | Recipe                                                               	    | Image                                                                                                               |
 |-------------------------------- |-------------------------------------------------------------------------- |-------------------------------------------------------------------------------------------------------------------- |
-| Fedora Silverblue GNOME      	  | [`silverblue-gnome.yaml`](./recipes/silverblue-gnome.yaml)           	    | [`ghcr.io/alexandregv/fedora-silverblue-gnome`](https://ghcr.io/alexandregv/fedora-silverblue-gnome)                |
-| Fedora Silverblue GNOME Nix  	  | [`silverblue-gnome-nix.yaml`](./recipes/silverblue-gnome-nix.yaml)   	    | [`ghcr.io/alexandregv/fedora-silverblue-gnome-nix`](https://ghcr.io/alexandregv/fedora-silverblue-gnome-nix)        |
-| Fedora Silverblue Cosmic     	  | [`silverblue-cosmic.yaml`](./recipes/silverblue-cosmic.yaml)         	    | [`ghcr.io/alexandregv/fedora-silverblue-cosmic`](https://ghcr.io/alexandregv/fedora-silverblue-cosmic)              |
-| Fedora Silverblue Cosmic Nix 	  | [`silverblue-cosmic-nix.yaml`](./recipes/silverblue-cosmic-nix.yaml) 	    | [`ghcr.io/alexandregv/fedora-silverblue-cosmic-nix`](https://ghcr.io/alexandregv/fedora-silverblue-cosmic-nix)      |
-| Fedora Silverblue Hyprland     	| [`silverblue-hyprland.yaml`](./recipes/silverblue-hyprland.yaml) 	        | [`ghcr.io/alexandregv/fedora-silverblue-hyprland`](https://ghcr.io/alexandregv/fedora-silverblue-hyprland)          |
-| Fedora Silverblue Hyprland Nix 	| [`silverblue-hyprland-nix.yaml`](./recipes/silverblue-hyprland-nix.yaml) 	| [`ghcr.io/alexandregv/fedora-silverblue-hyprland-nix`](https://ghcr.io/alexandregv/fedora-silverblue-hyprland-nix)  |
+| Fedora Silverblue GNOME      	  | [`silverblue-gnome.yaml`](./recipes/silverblue-gnome.yaml)           	    | [`ghcr.io/42paris/fedora-silverblue-gnome`](https://ghcr.io/42paris/fedora-silverblue-gnome)                |
+| Fedora Silverblue GNOME Nix  	  | [`silverblue-gnome-nix.yaml`](./recipes/silverblue-gnome-nix.yaml)   	    | [`ghcr.io/42paris/fedora-silverblue-gnome-nix`](https://ghcr.io/42paris/fedora-silverblue-gnome-nix)        |
+| Fedora Silverblue Cosmic     	  | [`silverblue-cosmic.yaml`](./recipes/silverblue-cosmic.yaml)         	    | [`ghcr.io/42paris/fedora-silverblue-cosmic`](https://ghcr.io/42paris/fedora-silverblue-cosmic)              |
+| Fedora Silverblue Cosmic Nix 	  | [`silverblue-cosmic-nix.yaml`](./recipes/silverblue-cosmic-nix.yaml) 	    | [`ghcr.io/42paris/fedora-silverblue-cosmic-nix`](https://ghcr.io/42paris/fedora-silverblue-cosmic-nix)      |
+| Fedora Silverblue Hyprland     	| [`silverblue-hyprland.yaml`](./recipes/silverblue-hyprland.yaml) 	        | [`ghcr.io/42paris/fedora-silverblue-hyprland`](https://ghcr.io/42paris/fedora-silverblue-hyprland)          |
+| Fedora Silverblue Hyprland Nix 	| [`silverblue-hyprland-nix.yaml`](./recipes/silverblue-hyprland-nix.yaml) 	| [`ghcr.io/42paris/fedora-silverblue-hyprland-nix`](https://ghcr.io/42paris/fedora-silverblue-hyprland-nix)  |
 
 ## Installation
 
@@ -22,7 +22,7 @@ To rebase an existing atomic Fedora installation to the latest build:
 
 - (First time only) First rebase to the unsigned image, to get the proper signing keys and policies installed:
   ```
-  rpm-ostree rebase ostree-unverified-registry:ghcr.io/alexandregv/fedora-silverblue-cosmic:44
+  rpm-ostree rebase ostree-unverified-registry:ghcr.io/42paris/fedora-silverblue-cosmic:44
   ```
 - Reboot to complete the rebase:
   ```
@@ -30,7 +30,7 @@ To rebase an existing atomic Fedora installation to the latest build:
   ```
 - Then rebase to the signed image, like so:
   ```
-  rpm-ostree rebase ostree-image-signed:docker://ghcr.io/alexandregv/fedora-silverblue-cosmic:44
+  rpm-ostree rebase ostree-image-signed:docker://ghcr.io/42paris/fedora-silverblue-cosmic:44
   ```
 - Reboot again to complete the installation
   ```
@@ -48,5 +48,5 @@ If build on Fedora Atomic, you can generate an offline ISO with the instructions
 These images are signed with [Sigstore](https://www.sigstore.dev/)'s [cosign](https://github.com/sigstore/cosign). You can verify the signature by downloading the `cosign.pub` file from this repo and running the following command:
 
 ```bash
-cosign verify --key cosign.pub ghcr.io/alexandregv/bluebuild-images
+cosign verify --key cosign.pub ghcr.io/42paris/bluebuild-images
 ```
